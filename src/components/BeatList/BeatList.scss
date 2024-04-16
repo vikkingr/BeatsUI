@@ -1,0 +1,16 @@
+@import '../../variables.scss';
+
+.beatList {
+    height: 72dvh;
+    width: 100dvw;
+    margin: 0px;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    overflow-y: scroll;
+    //border: 2px solid $ui-light;
+}

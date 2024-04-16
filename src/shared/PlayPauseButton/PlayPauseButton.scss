@@ -1,0 +1,15 @@
+.playPauseButton {
+    height: 2em;
+    padding: 0em;
+    will-change: filter;
+    transition: filter 300ms;
+    filter: invert(.75);
+}
+
+.playPauseButton:hover {
+    filter: drop-shadow(0 0 .5em #c5c8ff);
+}
+
+.playPauseButton.react:hover {
+    filter: drop-shadow(0 0 .5em #9deaff);
+}

@@ -1,0 +1,19 @@
+@import '../../../variables.scss';
+
+.beatListItem {
+    margin: 0px;
+    padding: 1em 0em;
+
+    width: 99%;
+
+    //flex stuff
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    place-content: center;
+
+    border: 1px solid $ui-gray;
+
+    font-size: 1em;
+}
