@@ -1,3 +1,7 @@
+# BeatsUI
+
+This is the User Interface repository for the Beats App.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
