@@ -18,12 +18,15 @@ const BeatsContextProvider = ({ children }) => {
 
     const updateCurrentTrack = ({ id, isPlaying }) => {
         const listOfTracksToEdit = [...listOfTracks];
-        const currentTrackIndex = listOfTracksToEdit.findIndex(track => track.id === id);
-        const currentTrack = { ...listOfTracks.at(currentTrackIndex), isPlaying };
 
-        listOfTracksToEdit.splice(currentTrackIndex, 1, currentTrack)
+        const newCurrentTrackIndex = listOfTracksToEdit.findIndex(track => track.id === id);
+        const currentTrackIndex = listOfTracksToEdit.findIndex(track => track.id === currentTrack.id);
+        const newCurrentTrack = { ...listOfTracks.at(newCurrentTrackIndex), isPlaying };
+        
+        listOfTracksToEdit[currentTrackIndex] = { ...currentTrack, isPlaying: false };
+        listOfTracksToEdit[newCurrentTrackIndex] = newCurrentTrack;
 
-        setCurrentTrack(currentTrack);
+        setCurrentTrack(newCurrentTrack);
         setListOfTracks(listOfTracksToEdit);
     };
 

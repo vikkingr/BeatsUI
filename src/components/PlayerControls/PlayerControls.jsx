@@ -17,7 +17,7 @@ const PlayerControls = () => {
     }
 
     return (
-        <div className="player">
+        <div className="player-controls">
             <span>PlayerControls</span>
             <PlayPauseButton isPlaying={isPlaying} onClick={onClickPlayPause} />
         </div>

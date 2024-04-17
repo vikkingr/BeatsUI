@@ -1,7 +1,10 @@
-.player {
+@import "../../variables.scss";
+
+.player-controls {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     height: 12dvh;
+    border-top: 1px solid $ui-gray;
 }
