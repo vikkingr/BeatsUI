@@ -1,21 +1,39 @@
+@import "../variables.scss";
+
 .layout {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     margin: 0px;
     padding: 0px;
-    height: 100dvh;
-    width: 100dvw;
+    height: 100%;
+    width: 100%;
 }
 
 .header {
-    height: 12dvh;
+    margin: 0px;
+    padding: 0px;
+    height: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .outlet {
-    height: 72dvh;
+    margin: 0px;
+    padding: 0px;
+    height: 74%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $ui-gray;
 }
 
 .footer {
-    height: 12dvh;
+    margin: 0px;
+    padding: 0px;
+    height: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
