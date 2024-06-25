@@ -13,6 +13,8 @@ const PlayerControls = () => {
     const { id, isPlaying } = currentTrack;
 
     const onClickPlayPause = () => {
+        const audioElement = document.getElementById("audio-element");
+        isPlaying ? audioElement.pause() : audioElement.play();
         updateCurrentTrack({ id: id, isPlaying: !isPlaying });
     }
 
@@ -20,7 +22,9 @@ const PlayerControls = () => {
         <div className="player-controls">
             <span>PlayerControls</span>
             <PlayPauseButton isPlaying={isPlaying} onClick={onClickPlayPause} />
-            <audio src="src\assets\audio\draengels.wav" controls></audio>
+            <audio id="audio-element" controls>
+                <source src="../../assets/audio/newBurger.aif" />
+            </audio>
         </div>
     )
 }
