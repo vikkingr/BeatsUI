@@ -20,6 +20,7 @@ const PlayerControls = () => {
         <div className="player-controls">
             <span>PlayerControls</span>
             <PlayPauseButton isPlaying={isPlaying} onClick={onClickPlayPause} />
+            <audio src="src\assets\audio\draengels.wav" controls></audio>
         </div>
     )
 }
