@@ -10,8 +10,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  width: 100%;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -31,9 +29,4 @@ body {
   display: flex;
   background-color: $ui-dark;
   color: $ui-light;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }

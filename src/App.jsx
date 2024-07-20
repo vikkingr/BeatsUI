@@ -6,6 +6,10 @@ import About from './components/About';
 import Catalog from './components/Catalog';
 import BeatsContextProvider from './context/BeatsContextProvider';
 
+const audioContext = new AudioContext();
+const audioOutput = audioContext.destination;
+const audioGain = audioContext.createGain();
+
 const router = createBrowserRouter([
   {
     path: '/',

@@ -11,7 +11,12 @@ const PlayerControls = () => {
         return <div>Loading</div>
     }
 
-    const { id, isPlaying } = currentTrack;
+    const { 
+        id, 
+        isPlaying,
+        src,
+        name 
+    } = currentTrack;
 
     const onClickPlayPause = () => {
         updateCurrentTrack({ id: id, isPlaying: !isPlaying });
@@ -58,9 +63,9 @@ const PlayerControls = () => {
 
     return (
         <div className="player-controls">
-            <span>PlayerControls</span>
+            <span>{name}</span>
             <PlayPauseButton id="play-pause-button" isPlaying={isPlaying} onClick={onClickPlayPause} />
-            <audio id="audio-element" src="src/assets/audio/newBurger.aif" controls></audio>
+            <audio id="audio-element" src={src} controls crossOrigin='anonymous'></audio>
         </div>
     )
 }
