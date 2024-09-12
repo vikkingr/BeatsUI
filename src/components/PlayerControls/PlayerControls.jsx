@@ -5,7 +5,7 @@ import './PlayerControls.scss';
 
 const PlayerControls = () => {
     const { currentTrack, updateCurrentTrack } = useContext(BeatsContext);
-    //const audioCtxContainer = useRef();
+    const audioCtxContainer = useRef();
 
     if (!currentTrack) {
         return <div>Loading</div>
@@ -19,7 +19,9 @@ const PlayerControls = () => {
     } = currentTrack;
 
     const onClickPlayPause = () => {
-        updateCurrentTrack({ id: id, isPlaying: !isPlaying });
+        updateCurrentTrack({ 
+            id: id, 
+            isPlaying: !isPlaying });
     }
 
     // //
@@ -64,8 +66,15 @@ const PlayerControls = () => {
     return (
         <div className="player-controls">
             <span>{name}</span>
-            <PlayPauseButton id="play-pause-button" isPlaying={isPlaying} onClick={onClickPlayPause} />
-            <audio id="audio-element" src={src} controls crossOrigin='anonymous'></audio>
+            <PlayPauseButton 
+                id="play-pause-button" 
+                isPlaying={isPlaying} 
+                onClick={onClickPlayPause} />
+            <audio 
+                ref={audioCtxContainer}
+                id="audio-element" 
+                src={src} controls 
+                crossOrigin='anonymous'></audio>
         </div>
     )
 }
