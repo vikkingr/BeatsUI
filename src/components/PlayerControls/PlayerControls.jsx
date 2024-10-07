@@ -1,27 +1,31 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { BeatsContext } from '../../context/BeatsContext';
 import PlayPauseButton from '../../shared/PlayPauseButton/PlayPauseButton';
 import './PlayerControls.scss';
 
 const PlayerControls = () => {
     const { currentTrack, updateCurrentTrack } = useContext(BeatsContext);
-    const audioCtxContainer = useRef();
 
     if (!currentTrack) {
         return <div>Loading</div>
-    }
+    };
 
-    const { 
-        id, 
+    const {
+        id,
         isPlaying,
         src,
-        name 
+        name
     } = currentTrack;
 
+    const audioElementRef = useRef(new Audio(src));
+
     const onClickPlayPause = () => {
-        updateCurrentTrack({ 
-            id: id, 
-            isPlaying: !isPlaying });
+        isPlaying ? audioElementRef.current.pause() : audioElementRef.current.play();
+
+        updateCurrentTrack({
+            id: id,
+            isPlaying: !isPlaying
+        });
     }
 
     // //
@@ -59,22 +63,27 @@ const PlayerControls = () => {
     //     playButton.dataset.playing = 'false';
     //     playButton.setAttribute("aria-checked", "false");
     // }, false);
-    
+
     // // connect our graph
     // track.connect(audioContext.destination);
+
+    isPlaying ? audioElementRef.current.play() : audioElementRef.current.pause();
 
     return (
         <div className="player-controls">
             <span>{name}</span>
-            <PlayPauseButton 
-                id="play-pause-button" 
-                isPlaying={isPlaying} 
-                onClick={onClickPlayPause} />
-            <audio 
-                ref={audioCtxContainer}
-                id="audio-element" 
-                src={src} controls 
-                crossOrigin='anonymous'></audio>
+            <PlayPauseButton
+                id="play-pause-button"
+                isPlaying={isPlaying}
+                onClick={onClickPlayPause}
+            />
+            <audio
+                ref={audioElementRef}
+                id="audio-element"
+                src={src}
+                crossOrigin='anonymous'
+            >
+            </audio>
         </div>
     )
 }
