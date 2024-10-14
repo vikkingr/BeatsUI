@@ -2,11 +2,35 @@
 
 .player-controls {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: roq;
+    justify-content: space-around;
     align-items: center;
     height: 100%;
     width: 100%;
     margin: 0px;
     padding: 0px;
+}
+
+.player-controls__track-information
+{
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.player-controls__track-control
+{
+    width: 25%;
+}
+
+.track-information__contributors 
+{
+    width: 50%;
+}
+
+.track-information__name
+{
+    width: 50%;
 }

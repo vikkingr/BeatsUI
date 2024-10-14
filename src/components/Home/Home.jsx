@@ -1,5 +1,6 @@
 import React from "react";
 import BeatList from "../BeatList/BeatList";
+import "./Home.scss";
 
 const Home = () => {
     

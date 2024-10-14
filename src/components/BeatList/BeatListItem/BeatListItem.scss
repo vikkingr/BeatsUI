@@ -2,16 +2,15 @@
 
 .beatListItem {
     margin: 0px;
-    padding: 1em 0em;
+    padding: 1% 1%;
 
-    width: 99%;
+    width: 50%;
 
     //flex stuff
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    place-content: center;
 
     border: 1px solid $ui-gray;
 
