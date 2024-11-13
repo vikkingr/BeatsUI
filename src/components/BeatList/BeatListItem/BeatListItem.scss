@@ -1,9 +1,10 @@
 @import '../../../variables.scss';
 
-.beatListItem {
+.beat-list-item {
     margin: 0px;
     padding: 1% 1%;
 
+    min-height: 13.8%;
     width: 50%;
 
     //flex stuff
@@ -12,7 +13,44 @@
     justify-content: space-between;
     align-items: center;
 
-    border: 1px solid $ui-gray;
+    border: 3px solid $ui-gray;
+    transition: border 100ms ease-out;
 
     font-size: 1em;
+
+    overflow: hidden;
+}
+
+.beat-list-item--playing {
+    border-color: rgba(0, 255, 13, 0.682);
+    animation: pulse 125ms ease-in;
+}
+
+// .beat-list-item__marquee {
+//     width: 25%;
+//     min-height: 13.8%;
+//     animation: scroll 2s linear 0s infinite forwards;
+//     position: relative;
+//     opacity: 0.7;
+//     rotate: 45deg;
+// }
+
+@keyframes pulse {
+    25% {
+        opacity: .5;
+    }
+
+    75% {
+        opacity: 0;
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
 }

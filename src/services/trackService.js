@@ -1,6 +1,13 @@
 const trackService = {
     listTracks: () => (
         [{
+            id: 9,
+            name: `bugatti remix`,
+            isPlaying: false,
+            contributors: ["Robert Veinberg-Vikking"],
+            src: 'src/assets/audio/bugatti remix.wav'
+        },
+        {
             id: 1,
             name: `Commonwealth`,
             isPlaying: false,
