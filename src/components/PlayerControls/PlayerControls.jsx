@@ -25,6 +25,15 @@ const PlayerControls = () => {
         });
     }
 
+    const onEndedHandler = (event) => {
+        event.preventDefault();
+
+        updateCurrentTrack({
+            id: id,
+            isPlaying: !isPlaying
+        });
+    }
+
     return (
         <div className="player-controls">
             <div className="player-controls__track-information">
@@ -42,6 +51,7 @@ const PlayerControls = () => {
                     id="audio-element"
                     src={src}
                     crossOrigin='anonymous'
+                    onEnded={onEndedHandler}
                 >
                 </audio>
             </div>
