@@ -24,13 +24,12 @@ const BeatsContextProvider = ({ children }) => {
         }
 
         const tracks = trackService.listTracks();
-        audioContextRef.current = new AudioContext();
 
+        audioContextRef.current = new AudioContext();
         setListOfTracks(tracks);
 
         if (!currentTrack) {
             fetchAndConnect();
-
             setCurrentTrack(tracks.at(0));
         }
 
@@ -77,14 +76,18 @@ const BeatsContextProvider = ({ children }) => {
         listOfTracksToEdit[currentTrackIndex] = { ...currentTrack, isPlaying: false };
         listOfTracksToEdit[newCurrentTrackIndex] = newCurrentTrack;
 
-        if (newCurrentTrackIndex !== currentTrackIndex) {            
+        if (newCurrentTrackIndex !== currentTrackIndex) {
             audioContextSourceRef.current.stop()
 
             fetchAndPlay();
+        } else {
+            if (isPlaying) {
+                audioContextSourceRef.current.start()
+            } else {
+                audioContextSourceRef.current.stop()
+            }
         }
 
-        fetchAndPlay();
-        
         setCurrentTrack(newCurrentTrack);
         setListOfTracks(listOfTracksToEdit);
     };
