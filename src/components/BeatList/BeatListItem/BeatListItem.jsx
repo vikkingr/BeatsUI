@@ -12,10 +12,8 @@ const BeatListItem = ({ track }) => {
     updateCurrentTrack({ id: id, isPlaying: !isPlaying });
   }
 
-  const className = clsx({ 'beat-list-item': true, 'beat-list-item--playing': isPlaying });
-
   return (
-    <div className={className}>
+    <div className={clsx({ 'beat-list-item': true, 'beat-list-item--playing': isPlaying })}>
       <span>{name}</span>
       <PlayPauseButton
         isPlaying={isPlaying}

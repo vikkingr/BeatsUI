@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { BeatsContext } from '../../context/BeatsContext';
 import PlayPauseButton from '../../shared/PlayPauseButton/PlayPauseButton';
+import clsx from 'clsx';
 import './PlayerControls.scss';
 
 const PlayerControls = () => {
@@ -35,10 +36,13 @@ const PlayerControls = () => {
     }
 
     return (
-        <div className="player-controls">
+        <div className={clsx({ 'player-controls': true, 'player-controls--playing': isPlaying })}>
             <div className="player-controls__track-information">
                 <span className='track-information__contributors'>{contributors.toString()}</span>
                 <span className='track-information__name'>{name}</span>
+            </div>
+            <div className='player-controls__seeker'>
+                <span className='player-controls__seeker-control'></span>
             </div>
             <div className='player-controls__track-control'>
                 <PlayPauseButton

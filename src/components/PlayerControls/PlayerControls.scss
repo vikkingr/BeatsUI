@@ -2,13 +2,18 @@
 
 .player-controls {
     display: flex;
-    flex-direction: roq;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     height: 100%;
     width: 100%;
     margin: 0px;
     padding: 0px;
+}
+
+.player-controls--playing {
+    border-color: rgba(0, 255, 13, 0.682);
+    animation: pulse 125ms ease-in;
 }
 
 .player-controls__track-information
@@ -39,4 +44,15 @@
     display: flex;
     justify-content: center;
     width: 100%;
+}
+
+.player-controls__seeker {
+    display: flex;
+    width: 50%;
+    height: 50%;
+}
+
+.player-controls__seeker-control {
+    background-color: rgba(170, 170, 170, 0.682);
+    width: 90%;
 }
