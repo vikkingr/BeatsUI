@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { BeatsContext } from '../../context/BeatsContext';
 import PlayPauseButton from '../../shared/PlayPauseButton/PlayPauseButton';
+import ProgressBar from '../../shared/ProgressBar/ProgressBar';
 import './PlayerControls.scss';
 
 const PlayerControls = () => {
@@ -40,6 +41,7 @@ const PlayerControls = () => {
                 <span className='track-information__contributors'>{contributors.toString()}</span>
                 <span className='track-information__name'>{name}</span>
             </div>
+            <ProgressBar value={50} />
             <div className='player-controls__track-control'>
                 <PlayPauseButton
                     id="play-pause-button"
