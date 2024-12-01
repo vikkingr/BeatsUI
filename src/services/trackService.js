@@ -9,17 +9,17 @@ const trackService = {
         },
         {
             id: 1,
-            name: `Commonwealth`,
+            name: `Commonwealth1`,
             isPlaying: false,
             contributors: ["Robert Veinberg-Vikking"],
-            src: 'src/assets/audio/Commonwealth.wav'
-        }, 
+            src: 'src/assets/audio/Commonwealth1.wav'
+        },
         {
             id: 2,
-            name: `bombayy`,
+            name: `36`,
             isPlaying: false,
             contributors: ["Robert Veinberg-Vikking"],
-            src: 'src/assets/audio/bombayy.wav'
+            src: 'src/assets/audio/36.wav'
         },
         {
             id: 3,
@@ -30,46 +30,25 @@ const trackService = {
         },
         {
             id: 4,
-            name: `grains`,
+            name: `keep it reggaedubby2`,
             isPlaying: false,
             contributors: ["Robert Veinberg-Vikking"],
-            src: 'src/assets/audio/grains.wav'
+            src: 'src/assets/audio/keep it reggaedubby2.wav'
         },
         {
             id: 5,
-            name: `end2`,
+            name: `bird is da wurm`,
             isPlaying: false,
             contributors: ["Robert Veinberg-Vikking"],
-            src: 'src/assets/audio/end2.wav'
+            src: 'src/assets/audio/bird is da wurm.wav'
         },
-        {
-            id: 8,
-            name: `end`,
-            isPlaying: false,
-            contributors: ["Robert Veinberg-Vikking"],
-            src: 'src/assets/audio/end.wav'
-        },
-        {
-            id: 6,
-            name: `phonk4`,
-            isPlaying: false,
-            contributors: ["Robert Veinberg-Vikking"],
-            src: 'src/assets/audio/phonk4.wav'
-        },
-        {
-            id: 7,
-            name: `phonk10`,
-            isPlaying: false,
-            contributors: ["Robert Veinberg-Vikking"],
-            src: 'src/assets/audio/phonk10.wav'
-        },
-        // ...Array(10).keys()
-        //     .map(num => ({
-        //         id: num + 2,
-        //         name: `Song ${num + 2}`,
-        //         isPlaying: false,
-        //         src: 'src/assets/audio/bombayy.wav'
-        //     }))
+            // ...Array(10).keys()
+            //     .map(num => ({
+            //         id: num + 2,
+            //         name: `Song ${num + 2}`,
+            //         isPlaying: false,
+            //         src: 'src/assets/audio/bombayy.wav'
+            //     }))
         ]
     )
 }
