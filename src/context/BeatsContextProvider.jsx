@@ -82,7 +82,7 @@ const BeatsContextProvider = ({ children }) => {
             fetchAndPlay();
         } else {
             if (isPlaying) {
-                audioContextSourceRef.current.start()
+                fetchAndPlay();
             } else {
                 audioContextSourceRef.current.stop()
             }

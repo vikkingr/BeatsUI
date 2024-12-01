@@ -41,7 +41,7 @@ const PlayerControls = () => {
                 <span className='track-information__contributors'>{contributors.toString()}</span>
                 <span className='track-information__name'>{name}</span>
             </div>
-            <ProgressBar value={50} />
+            <ProgressBar value={audioRef.current ? audioRef.current.currentTime / audioRef.current.duration : 0} />
             <div className='player-controls__track-control'>
                 <PlayPauseButton
                     id="play-pause-button"
