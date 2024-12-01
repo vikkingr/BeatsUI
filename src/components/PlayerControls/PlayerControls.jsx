@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef } from 'react';
 import { BeatsContext } from '../../context/BeatsContext';
 import PlayPauseButton from '../../shared/PlayPauseButton/PlayPauseButton';
 import clsx from 'clsx';
+import ProgressBar from '../../shared/ProgressBar/ProgressBar';
 import './PlayerControls.scss';
 
 const PlayerControls = () => {
@@ -44,6 +45,7 @@ const PlayerControls = () => {
             <div className='player-controls__seeker'>
                 <span className='player-controls__seeker-control'></span>
             </div>
+            <ProgressBar value={audioRef.current ? audioRef.current.currentTime / audioRef.current.duration : 0} />
             <div className='player-controls__track-control'>
                 <PlayPauseButton
                     id="play-pause-button"
