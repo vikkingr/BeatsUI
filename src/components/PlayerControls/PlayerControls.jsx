@@ -8,6 +8,7 @@ import './PlayerControls.scss';
 const PlayerControls = () => {
     const { currentTrack, updateCurrentTrack, audioRef } = useContext(BeatsContext);
     const [timeLineValue, setTimeLineValue] = useState(0);
+    const [currentTrackDuration, setCurrentTrackDuration] = useState(0);
 
     if (!currentTrack) {
         return <div>Loading</div>
@@ -38,9 +39,36 @@ const PlayerControls = () => {
     }
 
     const onTimeUpdate = (event) => {
-        event.preventDefault();
+        if (!audioRef.current) {
+            return;
+        }
+
+        if (Number.isNaN(audioRef.current.duration)) {
+            return;
+        }
+
+        if (audioRef.current.currentTime === 0) {
+            setTimeLineValue(0);
+
+            return;
+        }
 
         setTimeLineValue((audioRef.current.currentTime / audioRef.current.duration) * 100);
+    }
+
+    const onDurationChange = e => {
+        setCurrentTrackDuration(e.currentTarget.duration);
+        setTimeLineValue((audioRef.current.currentTime / e.currentTarget.duration) * 100);
+    }
+
+    console.log(audioRef);
+    console.log(src);
+    console.log(timeLineValue);
+
+
+
+    if (currentTrack) {
+        currentTrack.isPlaying ? audioRef.current.play() : audioRef.current.pause();
     }
 
     return (
@@ -61,6 +89,7 @@ const PlayerControls = () => {
                     id="audio-element"
                     src={src}
                     crossOrigin='anonymous'
+                    onDurationChange={onDurationChange}
                     onEnded={onEndedHandler}
                     onTimeUpdate={onTimeUpdate}
                 >

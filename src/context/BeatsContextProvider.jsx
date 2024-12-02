@@ -38,11 +38,7 @@ const BeatsContextProvider = ({ children }) => {
         setCurrentTrack(newCurrentTrack);
         setListOfTracks(listOfTracksToEdit);
     };
-
-    if (currentTrack)
-    {    
-        currentTrack.isPlaying ? audioRef.current.play() : audioRef.current.pause();
-    }
+    
     const value = { currentTrack, listOfTracks, updateCurrentTrack, audioRef };
 
     return (
