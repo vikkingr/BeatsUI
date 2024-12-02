@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { BeatsContext } from '../../context/BeatsContext';
 import PlayPauseButton from '../../shared/PlayPauseButton/PlayPauseButton';
 import clsx from 'clsx';
@@ -7,6 +7,7 @@ import './PlayerControls.scss';
 
 const PlayerControls = () => {
     const { currentTrack, updateCurrentTrack, audioRef } = useContext(BeatsContext);
+    const [timeLineValue, setTimeLineValue] = useState(0);
 
     if (!currentTrack) {
         return <div>Loading</div>
@@ -36,13 +37,19 @@ const PlayerControls = () => {
         });
     }
 
+    const onTimeUpdate = (event) => {
+        event.preventDefault();
+
+        setTimeLineValue((audioRef.current.currentTime / audioRef.current.duration) * 100);
+    }
+
     return (
         <div className={clsx({ 'player-controls': true, 'player-controls--playing': isPlaying })}>
             <div className="player-controls__track-information">
                 <span className='track-information__contributors'>{contributors.toString()}</span>
                 <span className='track-information__name'>{name}</span>
             </div>
-            <ProgressBar value={audioRef.current ? audioRef.current.currentTime / audioRef.current.duration : 0} />
+            <ProgressBar value={timeLineValue} />
             <div className='player-controls__track-control'>
                 <PlayPauseButton
                     id="play-pause-button"
@@ -55,6 +62,7 @@ const PlayerControls = () => {
                     src={src}
                     crossOrigin='anonymous'
                     onEnded={onEndedHandler}
+                    onTimeUpdate={onTimeUpdate}
                 >
                 </audio>
             </div>
