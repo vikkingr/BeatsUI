@@ -7,7 +7,7 @@ import './PlayerControls.scss';
 
 const PlayerControls = () => {
     const { currentTrack, updateCurrentTrack, audioRef } = useContext(BeatsContext);
-    const [timeLineValue, setTimeLineValue] = useState(0);
+    const [currentTrackTime, setCurrentTrackTime] = useState(0);
     const [currentTrackDuration, setCurrentTrackDuration] = useState(0);
 
     if (!currentTrack) {
@@ -39,38 +39,23 @@ const PlayerControls = () => {
     }
 
     const onTimeUpdate = (event) => {
-        if (!audioRef.current) {
-            return;
-        }
-
-        if (Number.isNaN(audioRef.current.duration)) {
-            return;
-        }
-
-        if (audioRef.current.currentTime === 0) {
-            setTimeLineValue(0);
-
-            return;
-        }
-
-        setTimeLineValue((audioRef.current.currentTime / audioRef.current.duration) * 100);
+        setCurrentTrackTime(event.currentTarget.currentTime);
     }
 
-    const onDurationChange = e => {
-        setCurrentTrackDuration(e.currentTarget.duration);
-        setTimeLineValue((audioRef.current.currentTime / e.currentTarget.duration) * 100);
+    const onDurationChange = event => {
+        setCurrentTrackDuration(event.currentTarget.duration);
     }
+
+    if (currentTrack && audioRef.current) {
+        currentTrack.isPlaying ? audioRef.current.play() : audioRef.current.pause();
+    }
+
+    let timeLineValue = (currentTrackTime / currentTrackDuration) * 100;
 
     console.log(audioRef);
     console.log(src);
     console.log(timeLineValue);
-
-
-
-    if (currentTrack) {
-        currentTrack.isPlaying ? audioRef.current.play() : audioRef.current.pause();
-    }
-
+    
     return (
         <div className={clsx({ 'player-controls': true, 'player-controls--playing': isPlaying })}>
             <div className="player-controls__track-information">

@@ -13,7 +13,7 @@ const BeatsContextProvider = ({ children }) => {
         if (!currentTrack) {
             const track = tracks.at(0);
 
-            audioRef.current = new Audio(track.src);
+            //audioRef.current = new Audio(track.src);
             setCurrentTrack(tracks.at(0));
         }
 
@@ -30,10 +30,10 @@ const BeatsContextProvider = ({ children }) => {
         listOfTracksToEdit[currentTrackIndex] = { ...currentTrack, isPlaying: false };
         listOfTracksToEdit[newCurrentTrackIndex] = newCurrentTrack;
 
-        if (newCurrentTrackIndex !== currentTrackIndex) {
-            audioRef.current.pause();
-            audioRef.current = new Audio(newCurrentTrack.src);
-        }
+        // if (newCurrentTrackIndex !== currentTrackIndex) {
+        //     audioRef.current.pause();
+        //     audioRef.current = new Audio(newCurrentTrack.src);
+        // }
 
         setCurrentTrack(newCurrentTrack);
         setListOfTracks(listOfTracksToEdit);
