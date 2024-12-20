@@ -14,7 +14,7 @@ const BeatListItem = ({ track }) => {
 
   return (
     <div className={clsx({ 'beat-list-item': true, 'beat-list-item--playing': isPlaying })}>
-      <span>{name}</span>
+      <span className='beat-list-item__name'>{name}</span>
       <PlayPauseButton
         isPlaying={isPlaying}
         onClick={onClickPlayPause}

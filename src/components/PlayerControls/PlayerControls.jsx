@@ -4,9 +4,12 @@ import PlayPauseButton from '../../shared/PlayPauseButton/PlayPauseButton';
 import clsx from 'clsx';
 import ProgressBar from '../../shared/ProgressBar/ProgressBar';
 import './PlayerControls.scss';
+import TrackInformation from './components/TrackInformation/TrackInformation';
+import PreviousTrackButton from './components/PreviousTrackButton/PreviousTrackButton';
+import NextTrackButton from './components/NextTrackButton/NextTrackButton';
 
 const PlayerControls = () => {
-    const { currentTrack, updateCurrentTrack, audioRef } = useContext(BeatsContext);
+    const { currentTrack, updateCurrentTrack, playPreviousTrack, playNextTrack, audioRef } = useContext(BeatsContext);
     const [currentTrackTime, setCurrentTrackTime] = useState(0);
     const [currentTrackDuration, setCurrentTrackDuration] = useState(0);
 
@@ -55,20 +58,19 @@ const PlayerControls = () => {
     console.log(audioRef);
     console.log(src);
     console.log(timeLineValue);
-    
+
     return (
         <div className={clsx({ 'player-controls': true, 'player-controls--playing': isPlaying })}>
-            <div className="player-controls__track-information">
-                <span className='track-information__contributors'>{contributors.toString()}</span>
-                <span className='track-information__name'>{name}</span>
-            </div>
             <ProgressBar value={timeLineValue} />
+            <TrackInformation name={name} contributors={contributors} />
             <div className='player-controls__track-control'>
+                <PreviousTrackButton onClick={playPreviousTrack}></PreviousTrackButton>
                 <PlayPauseButton
                     id="play-pause-button"
                     isPlaying={isPlaying}
                     onClick={onClickPlayPause}
                 />
+                <NextTrackButton onClick={playNextTrack}></NextTrackButton>
                 <audio
                     ref={audioRef}
                     id="audio-element"
