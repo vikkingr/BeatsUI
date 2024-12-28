@@ -11,7 +11,8 @@ import NextTrackButton from './components/NextTrackButton/NextTrackButton';
 const PlayerControls = () => {
     const { currentTrack, updateCurrentTrack, playPreviousTrack, playNextTrack, audioRef } = useContext(BeatsContext);
     const [currentTrackTime, setCurrentTrackTime] = useState(0);
-    const [currentTrackDuration, setCurrentTrackDuration] = useState(0);
+    const [currentTrackDuration, setCurrentTrackDuration] = useState(1);
+    let timeLineValue = (currentTrackTime / currentTrackDuration) * 100;
 
     if (!currentTrack) {
         return <div>Loading</div>
@@ -49,19 +50,21 @@ const PlayerControls = () => {
         setCurrentTrackDuration(event.currentTarget.duration);
     }
 
+    const handleProgressBarChange = (event) => {
+        audioRef.current.currentTime = (event.target.value / 100) * currentTrackDuration;
+    }
+
     if (currentTrack && audioRef.current) {
         currentTrack.isPlaying ? audioRef.current.play() : audioRef.current.pause();
     }
 
-    let timeLineValue = (currentTrackTime / currentTrackDuration) * 100;
-
-    console.log(audioRef);
-    console.log(src);
-    console.log(timeLineValue);
+    // console.log(audioRef);
+    // console.log(src);
+    // console.log(timeLineValue);
 
     return (
         <div className={clsx({ 'player-controls': true, 'player-controls--playing': isPlaying })}>
-            <ProgressBar value={timeLineValue} />
+            <ProgressBar value={timeLineValue} handleProgressBarChange={handleProgressBarChange} />
             <TrackInformation name={name} contributors={contributors} />
             <div className='player-controls__track-control'>
                 <PreviousTrackButton onClick={playPreviousTrack}></PreviousTrackButton>
