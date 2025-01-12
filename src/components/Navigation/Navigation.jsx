@@ -8,8 +8,8 @@ const Navigation = () => {
       <Link to='/'>
         Home
       </Link>
-      <Link to='Catalog'>
-        Catalog
+      <Link to='Catalogs'>
+        Catalogs
       </Link>
       <Link to='About'>
         About

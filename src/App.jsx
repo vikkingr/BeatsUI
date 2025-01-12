@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './layouts/Layout';
 import Home from './components/Home/Home';
 import About from './components/About';
-import Catalog from './components/Catalog/Catalog';
+import Catalogs from './components/Catalogs/Catalogs';
 import BeatsContextProvider from './context/BeatsContextProvider';
 
 const router = createBrowserRouter([
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: '/Catalog',
-        element: <Catalog />,
+        path: '/Catalogs',
+        element: <Catalogs />,
       }
     ],
   },

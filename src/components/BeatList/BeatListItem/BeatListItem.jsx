@@ -3,9 +3,10 @@ import { BeatsContext } from '../../../context/BeatsContext';
 import './BeatListItem.scss';
 import PlayPauseButton from '../../../shared/PlayPauseButton/PlayPauseButton';
 import clsx from 'clsx';
+import BeatlListItemInformation from './components/BeatListItemInformation/BeatlListItemInformation';
 
 const BeatListItem = ({ track }) => {
-  const { id, isPlaying, name } = track;
+  const { id, isPlaying, name, contributors } = track;
   const { updateCurrentTrack } = useContext(BeatsContext);
 
   const onClickPlayPause = () => {
@@ -14,7 +15,7 @@ const BeatListItem = ({ track }) => {
 
   return (
     <div className={clsx({ 'beat-list-item': true, 'beat-list-item--playing': isPlaying })}>
-      <span className='beat-list-item__name'>{name}</span>
+      <BeatlListItemInformation name={name} contributors={contributors} />
       <PlayPauseButton
         isPlaying={isPlaying}
         onClick={onClickPlayPause}

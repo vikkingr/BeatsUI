@@ -50,7 +50,29 @@ const trackService = {
             //         src: 'src/assets/audio/bombayy.wav'
             //     }))
         ]
-    )
+    ),
+    listTrackIds: () => {
+        return trackService.listTracks().map(beat => beat.id);
+    },
+    listCatalog: () => {
+        const beats = trackService.listTracks();
+        const catalog = [{
+            name: "2025",
+            beats
+        }];
+
+        return catalog;
+    },
+    getBeats: async () => {
+        const beats = await fetch("https://localhost:7270/api/beats", {
+            headers: {
+                "Content-Type": "application/json",
+            },
+            mode: "no-cors"
+        });
+
+        return beats;
+    }
 }
 
 export default trackService;

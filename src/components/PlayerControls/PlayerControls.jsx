@@ -4,7 +4,7 @@ import PlayPauseButton from '../../shared/PlayPauseButton/PlayPauseButton';
 import clsx from 'clsx';
 import ProgressBar from '../../shared/ProgressBar/ProgressBar';
 import './PlayerControls.scss';
-import TrackInformation from './components/TrackInformation/TrackInformation';
+import TrackInformation from '../../shared/TrackInformation/TrackInformation';
 import PreviousTrackButton from './components/PreviousTrackButton/PreviousTrackButton';
 import NextTrackButton from './components/NextTrackButton/NextTrackButton';
 
