@@ -8,16 +8,29 @@ const BeatsContextProvider = ({ children }) => {
     const audioRef = useRef();
 
     useEffect(() => {
+        // const fetchBeats = async () => {
+        //     const tracks = await trackService.getBeats();
+
+        //     if (!currentTrack) {
+        //         const track = tracks.at(0);
+    
+        //         //audioRef.current = new Audio(track.src);
+        //         setCurrentTrack(track);
+        //     }
+    
+        //     setListOfTracks(tracks);
+        // };
+
         const tracks = trackService.listTracks();
 
         if (!currentTrack) {
             const track = tracks.at(0);
 
-            //audioRef.current = new Audio(track.src);
             setCurrentTrack(track);
         }
 
         setListOfTracks(tracks);
+        //fetchBeats();
     }, []);
 
     const updateCurrentTrack = ({ id, isPlaying }) => {

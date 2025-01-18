@@ -54,22 +54,14 @@ const trackService = {
     listTrackIds: () => {
         return trackService.listTracks().map(beat => beat.id);
     },
-    listCatalog: () => {
-        const beats = trackService.listTracks();
-        const catalog = [{
-            name: "2025",
-            beats
-        }];
-
-        return catalog;
-    },
-    getBeats: async () => {
-        const beats = await fetch("https://localhost:7270/api/beats", {
+    getBeats:() => {
+        const beats = fetch("https://localhost:7270/api/beats", {
             headers: {
+                Accept: 'application/json',
                 "Content-Type": "application/json",
             },
-            mode: "no-cors"
-        });
+            mode: "cors"
+        }).then(response => response.json());
 
         return beats;
     }

@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import "./FileUploader.scss"
 
 const FileUploader = () => {
     const [files, setFiles] = useState([]);
@@ -15,7 +16,7 @@ const FileUploader = () => {
         const formData = new FormData();
 
         files.forEach((file, index) => {
-            formData.append(`file${index}`, file);
+            formData.append($`file{index}`, file);
         });
 
         const config = {
@@ -28,18 +29,17 @@ const FileUploader = () => {
     };
 
     return (
-        <div>
+        <div className='file-uploader'>
             <input
                 multiple
                 onChange={setFilesHandler}
                 type='file'
             />
-            <button 
+            <input 
+                value="Upload"
+                type="button" 
                 onClick={onSubmitHandler} 
-                type='submit'
-            >
-                Upload
-            </button>
+            />
         </div>
     )
 };
