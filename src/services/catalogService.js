@@ -21,9 +21,7 @@ const catalogService = {
             artist: "Robert Veinberg-Vikking"
         };
 
-        catalogService._catalogs.push(catalog);
-
-        return catalogService._catalogs;
+        return [catalog];
     },
 }
 

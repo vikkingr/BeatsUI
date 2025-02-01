@@ -5,7 +5,6 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    font-size: 2.5vh;
 }
 
 .track-information__contributors 
@@ -13,6 +12,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    font-size: 2.0vh;
 }
 
 .track-information__name
@@ -20,4 +20,5 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    font-size: 3.0vh;
 }

@@ -13,7 +13,13 @@ const OldProgressBar = ({ value }) => {
 const ProgressBar = ({ value, handleProgressBarChange }) => {
   return (
     <div className='slider-container'>
-      <input className='slider' step="0.1" type='range' value={value} onChange={handleProgressBarChange} />
+      <input 
+        className='slider' 
+        step="0.1" 
+        type='range' 
+        value={value} 
+        onChange={handleProgressBarChange}
+      />
     </div>
   );
 };

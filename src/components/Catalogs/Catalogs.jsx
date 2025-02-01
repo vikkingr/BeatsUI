@@ -9,12 +9,15 @@ const Catalogs = () => {
   const [catalogs, setCatalogs] = useState([]);
 
   useEffect(() => {
-    setCatalogs(catalogService.listCatalog());
-  }, [catalogs]);
+      const data = catalogService.listCatalog();
+      setCatalogs(data);
+  }, [catalogs, catalogService]);
 
   const _addMockCatalog = () => {
     catalogService.addToCatalog();
   };
+
+  console.count("helloo");
 
   return (
     <div className='page__catalogs'>
