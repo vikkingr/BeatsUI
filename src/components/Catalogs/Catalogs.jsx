@@ -11,20 +11,18 @@ const Catalogs = () => {
   useEffect(() => {
       const data = catalogService.listCatalog();
       setCatalogs(data);
-  }, [catalogs, catalogService]);
+  }, []);
 
-  const _addMockCatalog = () => {
-    catalogService.addToCatalog();
-  };
-
-  console.count("helloo");
+  // const _addMockCatalog = () => {
+  //   catalogService.addToCatalog();
+  // };
 
   return (
     <div className='page__catalogs'>
       <div className='file-uploader'>
-        <span>Want to add more beats to the catalog?</span>
+        {/* <span>Want to add more beats to the catalog?</span>
         <FileUploader />
-        <input type='button' value='add mock catalog item' onClick={_addMockCatalog} />
+        <input type='button' value='add mock catalog item' onClick={_addMockCatalog} /> */}
       </div>
       {catalogs && <div className='catalogs'>
         {catalogs.map(catalog => (

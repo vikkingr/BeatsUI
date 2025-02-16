@@ -17,8 +17,7 @@
     transition: border 100ms ease-out;
 
     font-size: 1em;
-
-    overflow: hidden;
+    background-color: $ui-semi-dark;
 }
 
 .beat-list-item:hover {

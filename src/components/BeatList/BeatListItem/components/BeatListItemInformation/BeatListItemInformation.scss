@@ -1,9 +1,10 @@
 .beat-list-item-information
 {
+    height: 100%;
     width: 75%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -13,6 +14,7 @@
     justify-content: flex-start;
     width: 100%;
     font-size: 2.5vh;
+    text-align: left;
 }
 
 .beat-list-item-information__contributors 
@@ -21,4 +23,6 @@
     justify-content: flex-start;
     width: 100%;
     font-size: 2.0vh;
+    text-align: left;
+    overflow: hidden;
 }

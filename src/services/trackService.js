@@ -14,34 +14,6 @@ const trackService = {
             contributors: ["Robert Veinberg-Vikking"],
             src: 'src/assets/audio/Commonwealth1.wav'
         },
-        {
-            id: 2,
-            name: `36`,
-            isPlaying: false,
-            contributors: ["Robert Veinberg-Vikking"],
-            src: 'src/assets/audio/36.wav'
-        },
-        {
-            id: 3,
-            name: `smish me2`,
-            isPlaying: false,
-            contributors: ["Robert Veinberg-Vikking"],
-            src: 'src/assets/audio/smish me2.wav'
-        },
-        {
-            id: 4,
-            name: `keep it reggaedubby2`,
-            isPlaying: false,
-            contributors: ["Robert Veinberg-Vikking"],
-            src: 'src/assets/audio/keep it reggaedubby2.wav'
-        },
-        {
-            id: 5,
-            name: `bird is da wurm`,
-            isPlaying: false,
-            contributors: ["Robert Veinberg-Vikking"],
-            src: 'src/assets/audio/bird is da wurm.wav'
-        },
             // ...Array(10).keys()
             //     .map(num => ({
             //         id: num + 2,
