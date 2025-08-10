@@ -1,23 +1,6 @@
 .play-pause-button {
     height: 2.5em;
     padding: 0em;
-    will-change: filter;
-    transition: filter 100ms;
-    filter: invert(.75);
-}
-
-.play-pause-button:hover {
-    filter: invert(.75) drop-shadow(0 0 .2em #c5c8ff);
-}
-
-.play-pause-button.react:hover {
-    filter: invert(.75), drop-shadow(0 0 .2em #9deaff);
-}
-
-.play-pause-button--paused:hover {
-    filter: invert(.75) drop-shadow(0 0 .2em rgb(0, 129, 2));
-}
-
-.play-pause-button--playing:hover {
-    filter: invert(.75) drop-shadow(0 0 .2em rgb(255, 0, 0));
+    // will-change: filter;
+    // transition: filter 100ms;
 }

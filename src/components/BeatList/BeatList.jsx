@@ -1,4 +1,4 @@
-import React, { useConext, useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { BeatsContext } from '../../context/BeatsContext'
 import BeatListItem from './BeatListItem/BeatListItem'
 import './BeatList.scss'
