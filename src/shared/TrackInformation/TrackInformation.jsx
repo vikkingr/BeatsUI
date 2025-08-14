@@ -7,9 +7,9 @@ const TrackInformation = ({ timeElapsed, name, contributors }) => {
         <h5 className="track-information__top__name">
           <span>{name}</span>
         </h5>
-        <span className="track-information__top__contributors">
+        {/* <span className="track-information__top__contributors">
           {contributors.toString()}
-        </span>
+        </span> */}
       </div>
       <h5 className="track-information__time-elapsed">
         <span>{timeElapsed}</span>
