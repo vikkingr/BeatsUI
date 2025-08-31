@@ -6,7 +6,7 @@ const About = () => {
     <div>
       <div>
         <h2>
-          <span>Beatsweb</span>
+          <span>BeatHaedz</span>
         </h2>
       </div>
       <div className="about__list-of-facts">

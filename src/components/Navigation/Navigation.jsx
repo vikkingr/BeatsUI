@@ -8,7 +8,7 @@ const Navigation = () => {
       <div className="navigation__left">
         <h2>
           <span>
-            <Link to="/">My Beats</Link>
+            <Link to="/">BeatHaedz</Link>
           </span>
         </h2>
       </div>
