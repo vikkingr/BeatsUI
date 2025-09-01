@@ -86,7 +86,7 @@ const BeatsContextProvider = ({ children }) => {
         setListOfTracks(listOfTracksToEdit);
     }
 
-    const value = { currentTrack, listOfTracks, updateCurrentTrack, playPreviousTrack, playNextTrack, audioRef };
+    const value = { currentTrack, listOfTracks, setListOfTracks, updateCurrentTrack, playPreviousTrack, playNextTrack, audioRef };
 
     return (
         <BeatsContext.Provider value={value}>
