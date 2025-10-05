@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import beatService from "../services/beatService";
 import { BeatsContext } from "./BeatsContext";
 
