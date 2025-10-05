@@ -12,7 +12,6 @@ const PlayerControls = () => {
     const { currentTrack, updateCurrentTrack, playPreviousTrack, playNextTrack, audioRef } = useContext(BeatsContext);
     const [currentTrackTime, setCurrentTrackTime] = useState(0);
     const [currentTrackDuration, setCurrentTrackDuration] = useState(1);
-    let timeLineValue = (currentTrackTime / currentTrackDuration) * 100;
 
     if (!currentTrack) {
         return <div>Loading</div>
@@ -58,14 +57,19 @@ const PlayerControls = () => {
         currentTrack.isPlaying ? audioRef.current.play() : audioRef.current.pause();
     }
 
-    // console.log(audioRef);
-    // console.log(src);
-    // console.log(timeLineValue);
+    const formatTime = (time) => {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+        return `${minutes}:${seconds}`;
+    };
+
+    const timeElapsed = `${formatTime(currentTrackTime)} - ${formatTime(currentTrackDuration)}`;
+    const timeLineValue = (currentTrackTime / currentTrackDuration) * 100;
 
     return (
         <div className={clsx({ 'player-controls': true, 'player-controls--playing': isPlaying })}>
             <ProgressBar value={timeLineValue} handleProgressBarChange={handleProgressBarChange} />
-            <TrackInformation name={name} contributors={contributors} />
+            <TrackInformation name={name} contributors={contributors} timeElapsed={timeElapsed} />
             <div className='player-controls__track-control'>
                 <PreviousTrackButton onClick={playPreviousTrack}></PreviousTrackButton>
                 <PlayPauseButton

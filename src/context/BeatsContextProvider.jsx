@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import trackService from "../services/trackService";
+import beatService from "../services/beatService";
 import { BeatsContext } from "./BeatsContext";
 
 const BeatsContextProvider = ({ children }) => {
@@ -8,20 +8,7 @@ const BeatsContextProvider = ({ children }) => {
     const audioRef = useRef();
 
     useEffect(() => {
-        // const fetchBeats = async () => {
-        //     const tracks = await trackService.getBeats();
-
-        //     if (!currentTrack) {
-        //         const track = tracks.at(0);
-    
-        //         //audioRef.current = new Audio(track.src);
-        //         setCurrentTrack(track);
-        //     }
-    
-        //     setListOfTracks(tracks);
-        // };
-
-        const tracks = trackService.listTracks();
+        const tracks = beatService.getBeats();
 
         if (!currentTrack) {
             const track = tracks.at(0);
@@ -30,23 +17,16 @@ const BeatsContextProvider = ({ children }) => {
         }
 
         setListOfTracks(tracks);
-        //fetchBeats();
     }, []);
 
     const updateCurrentTrack = ({ id, isPlaying }) => {
         const listOfTracksToEdit = [...listOfTracks];
-
         const newCurrentTrackIndex = listOfTracksToEdit.findIndex(track => track.id === id);
         const currentTrackIndex = listOfTracksToEdit.findIndex(track => track.id === currentTrack.id);
         const newCurrentTrack = { ...listOfTracks.at(newCurrentTrackIndex), isPlaying };
 
         listOfTracksToEdit[currentTrackIndex] = { ...currentTrack, isPlaying: false };
         listOfTracksToEdit[newCurrentTrackIndex] = newCurrentTrack;
-
-        // if (newCurrentTrackIndex !== currentTrackIndex) {
-        //     audioRef.current.pause();
-        //     audioRef.current = new Audio(newCurrentTrack.src);
-        // }
 
         setCurrentTrack(newCurrentTrack);
         setListOfTracks(listOfTracksToEdit);
@@ -106,7 +86,7 @@ const BeatsContextProvider = ({ children }) => {
         setListOfTracks(listOfTracksToEdit);
     }
 
-    const value = { currentTrack, listOfTracks, updateCurrentTrack, playPreviousTrack, playNextTrack, audioRef };
+    const value = { currentTrack, listOfTracks, setListOfTracks, updateCurrentTrack, playPreviousTrack, playNextTrack, audioRef };
 
     return (
         <BeatsContext.Provider value={value}>
