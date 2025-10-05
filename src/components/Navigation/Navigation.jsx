@@ -13,8 +13,8 @@ const Navigation = () => {
         </h2>
       </div>
       <div className="navigation__right">
-        <Link to="Backlog">Backlog</Link>
-        <Link to="About">About</Link>
+        <Link to="/Backlog">Backlog</Link>
+        <Link to="/About">About</Link>
       </div>
     </div>
   );

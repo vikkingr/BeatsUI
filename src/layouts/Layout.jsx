@@ -1,6 +1,6 @@
 import React from "react";
-import { Outlet } from "react-router-dom"
-import Navigation from "../components/Navigation/Navigation"
+import { Outlet } from "react-router-dom";
+import Navigation from "../components/Navigation/Navigation";
 import PlayerControls from "../components/PlayerControls/PlayerControls";
 import "./Layout.scss";
 
@@ -17,7 +17,7 @@ const Layout = () => {
                 <PlayerControls />
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Layout;
