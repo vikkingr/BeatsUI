@@ -1,12 +1,10 @@
 # BeatsUI
 
 This is the User Interface repository for the Beats App.
+I've been making beats for almost half my life I guess so why not combine my dev skills with my beats skills. 
 
-# React + Vite
+If you want to extend it, fork it, be my guest.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Putting a Pin On It For Now
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I might extend this some more, I was thinking of refectoring the BeatsContext with Redux, hence the stubbed out but unused reducer.

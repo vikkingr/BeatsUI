@@ -9,7 +9,7 @@ const Backlog = () => {
       </div>
       <div className="backlog__suggestions">
         <span>
-          Custom tags so you can create any tag you want, attach it to a beat and then perform aggregations like filtering, sorting and searching!
+          Custom tags so you can create any tag you want, attach it to a beat and then perform aggregations like filtering, sorting and searching?
         </span>
         <span>
           Add drag and drop feature to be able to re order beats by preference?

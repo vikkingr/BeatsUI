@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  beats: [], // Array of beat objects
-  selectedBeatId: null, // ID of the currently selected beat
-  isLoading: false, // Loading state for async actions
-  error: null, // Error message if any
+  beats: [], 
+  selectedBeatId: null, 
+  isLoading: false, 
+  error: null, 
 };
 
 const beatSlice = createSlice({
