@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.scss";
+import Search from "./Search";
 
 const Navigation = ({ searchValue, setSearchValue }) => {
   return (
@@ -12,16 +13,18 @@ const Navigation = ({ searchValue, setSearchValue }) => {
           </span>
         </h2>
       </div>
-      <div className="navigation__center">
-        <input
-          type="text"
-          value={searchValue}
+      {/* <div className="navigation__center">
+        <Search
+          searchValue={searchValue}
           onChange={e => setSearchValue(e.target.value)}
-          placeholder="Search beats..."
         />
-      </div>
+      </div> */}
       <div className="navigation__right">
-        <Link to="/About">About</Link>
+        {/* <Link to="/About">About</Link> */}
+        <Search
+          searchValue={searchValue}
+          onChange={e => setSearchValue(e.target.value)}
+        />
       </div>
     </div>
   );

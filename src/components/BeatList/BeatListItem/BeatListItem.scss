@@ -6,7 +6,7 @@
 
     min-height: 13.7%;
     max-height: 13.7%;
-    width: 75%;
+    width: 90%;
 
     //flex stuff
     display: flex;
@@ -14,11 +14,22 @@
     justify-content: space-between;
     align-items: center;
 
-    border: 3px solid $ui-gray;
+    border-width: 0px;
+    border-style: solid;
+    border-top-width: 3px;
+    border-color: $ui-gray;
+
     transition: border 100ms ease-out;
 
     font-size: 1em;
-    background-color: $ui-semi-dark;
+}
+
+.beat-list-item:first-child {
+    border-top-width: 0;
+}
+
+.beat-list-item:only-child {
+    border-bottom-width: 3px;
 }
 
 .beat-list-item:hover {
@@ -30,7 +41,16 @@
     animation: pulse 125ms ease-in;
 }
 
+.beat-list-item--playing + .beat-list-item {
+    border-top-color: rgba(0, 255, 13, 0.682);
+}
+
 .beat-list-item--playing:hover {
+    border-color: rgba(95, 255, 103, 0.682);
+    animation: pulse 125ms ease-in;
+}
+
+.beat-list-item--playing:hover + .beat-list-item {
     border-color: rgba(95, 255, 103, 0.682);
     animation: pulse 125ms ease-in;
 }
