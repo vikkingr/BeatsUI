@@ -21,7 +21,7 @@ const beatService = {
                 contributors: contributorsDefault,
                 src: audioFiles[filePath].default.startsWith('http')
                   ? audioFiles[filePath].default
-                  : import.meta.env.BASE_URL + 'assets/audio/' + fileName,
+                  : 'src/assets/audio/' + fileName,
             };
         });
     },
