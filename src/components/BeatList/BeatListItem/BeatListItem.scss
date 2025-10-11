@@ -32,10 +32,6 @@
     border-bottom-width: 3px;
 }
 
-.beat-list-item:hover {
-    border-color: rgb(180, 180, 180);
-}
-
 .beat-list-item--playing {
     border-color: rgba(0, 255, 13, 0.682);
     animation: pulse 125ms ease-in;
