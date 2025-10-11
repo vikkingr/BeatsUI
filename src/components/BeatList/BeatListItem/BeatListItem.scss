@@ -39,6 +39,7 @@
 
 .beat-list-item--playing + .beat-list-item {
     border-top-color: rgba(0, 255, 13, 0.682);
+    animation: pulse 125ms ease-in;
 }
 
 .beat-list-item--playing:hover {

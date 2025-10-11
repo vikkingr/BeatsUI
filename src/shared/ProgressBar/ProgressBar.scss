@@ -55,26 +55,26 @@
   border-radius: 50px;
   -webkit-appearance: none;
   appearance: none;
-  width: 8px;
-  height: 30px;
-  background-color: #00b371;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(0, 255, 13, 1);
   transition: background-color 0.1s ease-out;
   cursor: pointer;
 }
 
 .slider::-webkit-slider-thumb:hover {
-  background-color: #00f673;
+  background-color: rgba(0, 255, 13, 1);
 }
 
 .slider::-moz-range-thumb {
   border-radius: 50px;
   width: 8px;
   height: 16px;
-  background-color: #00b371;
+  background-color: rgba(0, 255, 13, 1)1;
   transition: background-color 0.1s ease-out;
   cursor: pointer;
 }
 
 .slider::-moz-range-thum:hover {
-  background-color: #00f673;
+  background-color: rgba(0, 255, 13, 1);
 }
