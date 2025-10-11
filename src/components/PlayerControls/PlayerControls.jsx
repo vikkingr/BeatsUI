@@ -9,7 +9,7 @@ import PreviousTrackButton from './components/PreviousTrackButton/PreviousTrackB
 import NextTrackButton from './components/NextTrackButton/NextTrackButton';
 
 const PlayerControls = () => {
-    const { currentTrack, updateCurrentTrack, playPreviousTrack, playNextTrack, audioRef } = useContext(BeatsContext);
+    const { currentTrack, updateCurrentTrack, audioRef, filteredTracks, setCurrentTrack } = useContext(BeatsContext);
     const [currentTrackTime, setCurrentTrackTime] = useState(0);
     const [currentTrackDuration, setCurrentTrackDuration] = useState(1);
 
@@ -32,13 +32,23 @@ const PlayerControls = () => {
         });
     }
 
+    const playPreviousTrack = () => {
+        const currentIndex = filteredTracks.findIndex(track => track.id === currentTrack.id);
+        const prevIndex = currentIndex < 1 ? filteredTracks.length - 1 : currentIndex - 1;
+        const prevTrack = filteredTracks[prevIndex];
+        updateCurrentTrack({ id: prevTrack.id, isPlaying: true });
+    }
+
+    const playNextTrack = () => {
+        const currentIndex = filteredTracks.findIndex(track => track.id === currentTrack.id);
+        const nextIndex = currentIndex === filteredTracks.length - 1 ? 0 : currentIndex + 1;
+        const nextTrack = filteredTracks[nextIndex];
+        updateCurrentTrack({ id: nextTrack.id, isPlaying: true });
+    }
+
     const onEndedHandler = (event) => {
         event.preventDefault();
-
-        updateCurrentTrack({
-            id: id,
-            isPlaying: !isPlaying
-        });
+        playNextTrack();
     }
 
     const onTimeUpdate = (event) => {
