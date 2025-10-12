@@ -5,18 +5,16 @@ import { BeatsContext } from "./BeatsContext";
 const BeatsContextProvider = ({ children }) => {
     const [currentTrack, setCurrentTrack] = useState(undefined);
     const [listOfTracks, setListOfTracks] = useState([]);
+    const [filteredTracks, setFilteredTracks] = useState([]);
     const audioRef = useRef();
 
     useEffect(() => {
         const tracks = beatService.getBeats();
-
-        if (!currentTrack) {
-            const track = tracks.at(0);
-
-            setCurrentTrack(track);
-        }
-
         setListOfTracks(tracks);
+        setFilteredTracks(tracks);
+        if (!currentTrack && tracks.length > 0) {
+            setCurrentTrack(tracks[0]);
+        }
     }, []);
 
     const updateCurrentTrack = ({ id, isPlaying }) => {
@@ -86,7 +84,7 @@ const BeatsContextProvider = ({ children }) => {
         setListOfTracks(listOfTracksToEdit);
     }
 
-    const value = { currentTrack, listOfTracks, setListOfTracks, updateCurrentTrack, playPreviousTrack, playNextTrack, audioRef };
+    const value = { currentTrack, listOfTracks, setListOfTracks, filteredTracks, setFilteredTracks, updateCurrentTrack, playPreviousTrack, playNextTrack, audioRef };
 
     return (
         <BeatsContext.Provider value={value}>

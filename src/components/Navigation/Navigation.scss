@@ -16,8 +16,18 @@
 
 .navigation__left {
   display: flex;
+  padding-left: 5%;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.navigation__center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   flex-grow: 1;
   height: 100%;

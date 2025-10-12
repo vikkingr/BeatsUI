@@ -14,15 +14,18 @@ const beatService = {
             
             // Vite will copy assets to the correct place and update the import path to a URL
             // So we can use the module's default export as the URL
-            return {
+
+            const beat = {
                 id: idx + 1,
                 name,
                 isPlaying: false,
                 contributors: contributorsDefault,
                 src: audioFiles[filePath].default.startsWith('http')
                   ? audioFiles[filePath].default
-                  : import.meta.env.BASE_URL + 'assets/audio/' + fileName,
+                  : 'src/assets/audio/' + fileName,
             };
+
+            return beat;
         });
     },
     listTrackIds: () => {

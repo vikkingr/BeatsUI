@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.scss";
+import Search from "./Search";
 
-const Navigation = () => {
+const Navigation = ({ searchValue, setSearchValue }) => {
   return (
     <div className="navigation">
       <div className="navigation__left">
@@ -12,9 +13,18 @@ const Navigation = () => {
           </span>
         </h2>
       </div>
+      {/* <div className="navigation__center">
+        <Search
+          searchValue={searchValue}
+          onChange={e => setSearchValue(e.target.value)}
+        />
+      </div> */}
       <div className="navigation__right">
-        <Link to="/Backlog">Backlog</Link>
-        <Link to="/About">About</Link>
+        {/* <Link to="/About">About</Link> */}
+        <Search
+          searchValue={searchValue}
+          onChange={e => setSearchValue(e.target.value)}
+        />
       </div>
     </div>
   );

@@ -1,10 +1,17 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { BeatsContext } from "../../context/BeatsContext";
 import BeatListItem from "./BeatListItem/BeatListItem";
 import "./BeatList.scss";
 
-const BeatList = () => {
-  const { listOfTracks, setListOfTracks } = useContext(BeatsContext);
+const BeatList = ({ searchValue }) => {
+  const { listOfTracks, setListOfTracks, filteredTracks, setFilteredTracks } = useContext(BeatsContext);
+  useEffect(() => {
+    if (searchValue) {
+      setFilteredTracks(listOfTracks.filter(track => track.name.toLowerCase().includes(searchValue.toLowerCase())));
+    } else {
+      setFilteredTracks(listOfTracks);
+    }
+  }, [searchValue, listOfTracks, setFilteredTracks]);
   const dragItem = useRef(null);
   const dragOverItem = useRef(null);
 
@@ -28,7 +35,7 @@ const BeatList = () => {
 
   return (
     <div className="beatList">
-      {listOfTracks.map((track, index) => (
+      {filteredTracks.map((track, index) => (
         <BeatListItem
           key={index}
           track={track}
