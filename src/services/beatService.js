@@ -20,9 +20,7 @@ const beatService = {
                 name,
                 isPlaying: false,
                 contributors: contributorsDefault,
-                src: audioFiles[filePath].default.startsWith('http')
-                  ? audioFiles[filePath].default
-                  : 'src/assets/audio/' + fileName,
+                src: audioFiles[filePath].default
             };
 
             return beat;
