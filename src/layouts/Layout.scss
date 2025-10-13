@@ -26,7 +26,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid $ui-gray;
+    border-top: 3px solid $ui-gray;
+    border-bottom: 3px solid $ui-gray;
+    border-left: none;
+    border-right: none;
     background-color: rgb(0, 0, 0);
 }
 
